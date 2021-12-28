@@ -6,7 +6,7 @@ KMM-weather is a test project to practise KMM.
 
 ## Features
 
-- WS weather
+- WS weather : https://openweathermap.org/api
 - SwiftUI
 - ViewState with exposed ViewModel
 
