@@ -1,6 +1,11 @@
 package com.sbellanger.weather.domain
 
 data class WeatherEntity(
-    val temperature: Double,
-    val weather: String
+    val temperature: String,
+    val weather: String,
+    val pressure: String,
+    val humidity: String,
+    val wind: String,
+    val city: String,
+    val currentTime: String
 )

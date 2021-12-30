@@ -12,7 +12,7 @@ class ObservableState: ObservableObject {
             if(viewState is ViewState.HasResult){
                 let successState = viewState as! ViewState.HasResult
                 self.description = successState.weather.weather
-                self.temperature = String(format: "%f", successState.weather.temperature)
+                self.temperature = successState.weather.temperature
                 
             }
             else if(viewState is ViewState.Error){

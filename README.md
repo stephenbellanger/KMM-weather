@@ -7,7 +7,7 @@ KMM-weather is a test project to practise KMM.
 ## Features
 
 - WS weather : https://openweathermap.org/api
-- SwiftUI
+- SwiftUI / Compose
 - ViewState with exposed ViewModel
 
 ## Sources
@@ -21,3 +21,5 @@ KMM-weather is a test project to practise KMM.
 | ------ | ------ |
 | Ktor | https://ktor.io/docs/http-client-multiplatform.html#add-dependencies |
 | Moko | https://moko.icerock.dev/ |
+| Compose | https://developer.android.com/jetpack/compose/setup |
+| kotlinx-datetime | https://github.com/Kotlin/kotlinx-datetime |

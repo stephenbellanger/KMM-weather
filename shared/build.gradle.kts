@@ -28,6 +28,7 @@ kotlin {
                 implementation("io.ktor:ktor-client-logging:$ktorVersion")
                 implementation("io.ktor:ktor-client-serialization:$ktorVersion")
                 implementation("dev.icerock.moko:mvvm:$mokoVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.1")
             }
         }
         val commonTest by getting {

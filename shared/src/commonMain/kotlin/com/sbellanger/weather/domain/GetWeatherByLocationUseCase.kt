@@ -7,13 +7,34 @@ import com.sbellanger.weather.data.WeatherRepository
 
 class GetWeatherByLocationUseCase {
 
+    ///////////////////////////////////////////////////////////////////////////
+    // PUBLIC API
+    ///////////////////////////////////////////////////////////////////////////
+
     suspend fun execute(city: String): WeatherEntity? {
         val response = (WeatherRepository() as IWeatherRepository).getWeather(city)
         return if (response is Response.Success<*>) {
             val data = response.data as RawWeather
             WeatherEntity(
-                data.temperature.temp,
-                data.weather.first().description
+                temperature = StringBuilder()
+                    .append(data.temperature.temp.toInt())
+                    .append("°")
+                    .toString(),
+                weather = data.weather.first().description,
+                city = data.city,
+                currentTime = GetFormattedTimeUseCase().execute(),
+                pressure = StringBuilder()
+                    .append(data.temperature.pressure)
+                    .append("hPa")
+                    .toString(),
+                humidity = StringBuilder()
+                    .append(data.temperature.humidity)
+                    .append("%")
+                    .toString(),
+                wind = StringBuilder()
+                    .append(data.wind.speed)
+                    .append("m/s")
+                    .toString()
             )
         } else null
     }
