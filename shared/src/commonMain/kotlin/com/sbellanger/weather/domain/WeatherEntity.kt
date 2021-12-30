@@ -2,7 +2,7 @@ package com.sbellanger.weather.domain
 
 data class WeatherEntity(
     val temperature: String,
-    val weather: String,
+    val description: String,
     val pressure: String,
     val humidity: String,
     val wind: String,

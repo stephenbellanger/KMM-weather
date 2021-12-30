@@ -11,7 +11,7 @@ class ObservableState: ObservableObject {
         self.viewModel.viewState.addObserver { (viewState) in
             if(viewState is ViewState.HasResult){
                 let successState = viewState as! ViewState.HasResult
-                self.description = successState.weather.weather
+                self.description = successState.weather.description
                 self.temperature = successState.weather.temperature
                 
             }

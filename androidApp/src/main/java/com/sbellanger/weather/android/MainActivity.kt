@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity(), IMainContract.ViewCapability {
 
     private lateinit var viewModel: IWeatherViewModel
 
+    // TODO: In VM ?
     private val description = mutableStateOf("")
     private val temperature = mutableStateOf("")
     private val city = mutableStateOf("")
@@ -75,8 +76,6 @@ class MainActivity : AppCompatActivity(), IMainContract.ViewCapability {
             getWeather("rennes")
             viewState.addObserver { handleViewState(it) }
         }
-
-
     }
 
     ///////////////////////////////////////////////////////////////////////////
@@ -92,7 +91,7 @@ class MainActivity : AppCompatActivity(), IMainContract.ViewCapability {
     }
 
     override fun showWeather(weather: WeatherEntity) {
-        description.value = weather.weather
+        description.value = weather.description
         temperature.value = weather.temperature
         city.value = weather.city
         date.value = weather.currentTime
