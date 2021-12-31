@@ -59,25 +59,27 @@ struct ContentView: View {
         VStack {
             if let temperature = observableState.temperature{
                 Text(temperature)
-                    .font(.system(size: 50))
+                    .font(.system(size: 36))
                     .bold()
                     .foregroundColor(.white)
             }
             if let city = observableState.city{
                 Text(city)
-                    .font(.system(size: 40))
+                    .font(.system(size: 26))
                     .bold()
                     .foregroundColor(.white)
+                    .padding(.top, 16)
             }
             if let date = observableState.date{
                 Text(date)
-                    .font(.system(size: 20))
+                    .font(.system(size: 16))
                     .bold()
                     .foregroundColor(.gray)
+                    .padding(.top, 8)
             }
             if let description = observableState.description {
                 Text(description.capitalized)
-                    .font(.system(size: 20))
+                    .font(.system(size: 16))
                     .bold()
                     .padding(.top, 12)
                     .foregroundColor(.white)
