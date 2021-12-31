@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity(), IMainContract.ViewCapability {
         setContent {
             Box {
                 Image(
-                    painter = painterResource(id = R.drawable.background_sun),
+                    painter = painterResource(id = R.drawable.background_night),
                     contentDescription = null,
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity(), IMainContract.ViewCapability {
         description.value = weather.description
         temperature.value = weather.temperature
         city.value = weather.city
-        date.value = weather.currentTime
+        date.value = weather.date
         pressure.value = weather.pressure
         humidity.value = weather.humidity
         wind.value = weather.wind

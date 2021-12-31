@@ -20,9 +20,9 @@ class GetWeatherByLocationUseCase {
                     .append(data.temperature.temp.toInt())
                     .append("°")
                     .toString(),
-                weather = data.weather.first().description,
+                description = data.weather.first().description,
                 city = data.city,
-                currentTime = GetFormattedTimeUseCase().execute(),
+                date = GetFormattedTimeUseCase().execute(),
                 pressure = StringBuilder()
                     .append(data.temperature.pressure)
                     .append("hPa")
