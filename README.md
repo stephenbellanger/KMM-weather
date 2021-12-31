@@ -4,6 +4,9 @@
 
 KMM-weather is a test project to practise KMM.
 
+![Android](./screenshot/android_home.png)
+![iOS](./screenshot/ios_home.png)
+
 ## Features
 
 - WS weather : https://openweathermap.org/api
