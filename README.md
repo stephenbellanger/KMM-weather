@@ -6,7 +6,7 @@ KMM-weather is a test project to practise KMM.
 
 Android                    |  iOS
 :-------------------------:|:-------------------------:
-![](./screenshot/android_home.png)  |  ![](./screenshot/ios_home.png)
+<img src="./screenshot/android_home.png" width="100" height="100">  |  <img src="./screenshot/ios_home.png" width="100" height="100">
 
 ## Features
 
