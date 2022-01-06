@@ -1,5 +1,6 @@
 package com.sbellanger.weather.data
 
+import com.sbellanger.weather.data.client.ApiService
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.engine.cio.*
@@ -28,21 +29,10 @@ class WeatherRequest {
     ///////////////////////////////////////////////////////////////////////////
 
     private val apiKey = "3e1c6012a7e64deda2e954b067a093a5"
-    private val baseUrl = "http://api.openweathermap.org/data/2.5/weather" //https not supported with CIO engine
+    private val baseUrl = "https://api.openweathermap.org/data/2.5/weather"
 
-    private val httpClient = HttpClient(CIO) {
-        expectSuccess = false
-        ResponseObserver { response ->
-            println("HTTP status: ${response.status.value}")
-            println(response.receive<String>())
-        }
-        install(JsonFeature) {
-            serializer = KotlinxSerializer(kotlinx.serialization.json.Json {
-                prettyPrint = true
-                isLenient = true
-                ignoreUnknownKeys = true
-            })
-        }
+    private val httpClient by lazy {
+        ApiService().build()
     }
 
     suspend fun execute(city: String): Response {

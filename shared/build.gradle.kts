@@ -57,6 +57,9 @@ kotlin {
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             //iosSimulatorArm64Main.dependsOn(this)
+            dependencies {
+                implementation("io.ktor:ktor-client-ios:$ktorVersion")
+            }
         }
         val iosX64Test by getting
         val iosArm64Test by getting
@@ -76,5 +79,10 @@ android {
     defaultConfig {
         minSdk = 21
         targetSdk = 32
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }
