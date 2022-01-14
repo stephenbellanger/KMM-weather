@@ -41,6 +41,7 @@ kotlin {
             dependencies {
                 implementation("io.ktor:ktor-client-android:$ktorVersion")
                 implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
+                implementation("joda-time:joda-time:2.10.13")
             }
         }
         val androidTest by getting {
