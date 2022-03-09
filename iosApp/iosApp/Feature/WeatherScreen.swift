@@ -1,13 +1,24 @@
-import SwiftUI
-import shared
+//
+//  WeatherScreen.swift
+//  iosApp
+//
+//  Created by Stephen BELLANGER on 09/03/2022.
+//  Copyright © 2022 orgName. All rights reserved.
+//
 
-struct ContentView: View {
-    @StateObject private var viewModel = WeatherViewModel()
+import SwiftUI
+import sha
+
+struct WeatherScreen : View {
+    let viewModel: WeatherViewModel
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                BackgroundView()
+                Image("background_night")
+                    .resizable()
+                    .scaledToFill()
+                    .edgesIgnoringSafeArea(.all)
                 if(viewModel.viewState is ViewState.HasResult){
                     let successState = viewModel.viewState as! ViewState.HasResult
                     WeatherDescriptionView(
