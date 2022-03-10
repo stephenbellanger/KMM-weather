@@ -3,16 +3,17 @@ package com.sbellanger.weather.domain
 import com.sbellanger.weather.data.IWeatherRepository
 import com.sbellanger.weather.data.RawWeather
 import com.sbellanger.weather.data.Response
-import com.sbellanger.weather.data.WeatherRepository
 
-class GetWeatherByLocationUseCase {
+class GetWeatherByLocationUseCase(
+    private val repository: IWeatherRepository
+) {
 
     ///////////////////////////////////////////////////////////////////////////
     // PUBLIC API
     ///////////////////////////////////////////////////////////////////////////
 
     suspend fun execute(city: String): WeatherEntity? {
-        val response = (WeatherRepository() as IWeatherRepository).getWeather(city)
+        val response = repository.getWeather(city)
         return if (response is Response.Success<*>) {
             val data = response.data as RawWeather
             WeatherEntity(

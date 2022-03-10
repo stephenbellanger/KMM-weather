@@ -6,8 +6,16 @@ import com.sbellanger.weather.ViewState
 import com.sbellanger.weather.domain.GetWeatherByLocationUseCase
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
 import kotlinx.coroutines.launch
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 
-class WeatherViewModel : ViewModel(), IWeatherContract.ViewModel {
+class WeatherViewModel : ViewModel(), IWeatherContract.ViewModel, KoinComponent {
+
+    ///////////////////////////////////////////////////////////////////////////
+    // DEPENDENCY
+    ///////////////////////////////////////////////////////////////////////////
+
+    private val getWeatherByLocationUseCase: GetWeatherByLocationUseCase by inject()
 
     ///////////////////////////////////////////////////////////////////////////
     // DATA
@@ -22,7 +30,7 @@ class WeatherViewModel : ViewModel(), IWeatherContract.ViewModel {
     override fun getWeather(city: String) {
         viewModelScope.launch {
             val viewState = try {
-                GetWeatherByLocationUseCase().execute(city)?.let { result ->
+                getWeatherByLocationUseCase.execute(city)?.let { result ->
                     ViewState.HasResult(result)
                 } ?: ViewState.Error("No result for $city")
             } catch (e: Exception) {

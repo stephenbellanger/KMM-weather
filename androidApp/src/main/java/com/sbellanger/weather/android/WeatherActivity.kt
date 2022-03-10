@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.lifecycle.ViewModelProvider
 import com.sbellanger.weather.android.presentation.WeatherScreen
+import org.koin.android.ext.android.inject
 
 @ExperimentalAnimationApi
 class WeatherActivity : AppCompatActivity() {
@@ -14,7 +14,7 @@ class WeatherActivity : AppCompatActivity() {
     // DATA
     ///////////////////////////////////////////////////////////////////////////
 
-    private lateinit var viewModel: IWeatherContract.ViewModel
+    private val viewModel: IWeatherContract.ViewModel by inject()
 
     ///////////////////////////////////////////////////////////////////////////
     // LIFECYCLE
@@ -24,8 +24,6 @@ class WeatherActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContent { WeatherScreen(viewState = viewModel.viewState.value) }
-
-        viewModel = ViewModelProvider(this)[WeatherViewModel::class.java]
 
         viewModel.getWeather("rennes")
     }

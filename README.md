@@ -13,6 +13,7 @@ Android                    |  iOS
 - WS weather : https://openweathermap.org/api
 - SwiftUI / Compose
 - ViewState with exposed ViewModel
+- Koin
 
 ## Sources
 
@@ -27,3 +28,5 @@ Android                    |  iOS
 | Moko | https://moko.icerock.dev/ |
 | Compose | https://developer.android.com/jetpack/compose/setup |
 | kotlinx-datetime | https://github.com/Kotlin/kotlinx-datetime |
+| Koin | https://insert-koin.io/ |
+
